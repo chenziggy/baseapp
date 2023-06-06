@@ -9,29 +9,29 @@ registerGlobal(window, {
   Vue,
   VueRouter
 })
+const entryFile = 'entry.js'
+  import(`http://localhost:8090/assets/${entryFile}`).then((module) => {
+    bootstrap(module.r())
+  })
 
-import('http://localhost:8090/assets/entry-cc01fd81.js').then((module) => {
-  bootstrap(module.r())
-})
 
-// const registerApp = await import(
-//   'http://localhost:8090/assets/index-ecf7a3ae.js'
-// )
-// console.log('🚀 ~ file: main.js:12 ~ registerApp:', registerApp)
+
+function createLinkElement (css) {
+  const linkElement = document.createElement('link')
+  linkElement.rel="stylesheet"
+  linkElement.href = css
+  const a = document.head.appendChild(linkElement)
+}
 
 function bootstrap(config) {
-  const { routes, name } = config
-  console.log('🚀 ~ file: main.js:18 ~ bootstrap ~ router, name:', routes, name)
+  createLinkElement('http://localhost:8090/assets/entry.css')
+  const { routes } = config
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes
   })
-  console.log('🚀 ~ file: main.js:29 ~ bootstrap ~ router:', router)
   const app = createApp(App)
   app.use(router).mount('#app')
-  setTimeout(() => {
-    router.push('/home')
-  }, 1000)
 }
 
 function registerGlobal(root, deps = {}) {
