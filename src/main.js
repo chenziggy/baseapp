@@ -10,8 +10,8 @@ registerGlobal(window, {
   VueRouter
 })
 
-import('http://localhost:8090/assets/index-adbca556.js').then((module) => {
-  bootstrap(registerApp())
+import('http://localhost:8090/assets/entry-cc01fd81.js').then((module) => {
+  bootstrap(module.r())
 })
 
 // const registerApp = await import(
