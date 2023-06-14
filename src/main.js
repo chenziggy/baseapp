@@ -9,11 +9,14 @@ registerGlobal(window, {
   Vue,
   VueRouter
 })
-const origin = 'http://localhost:5175'
+const origin = 'http://localhost:8090'
 const entryFile = 'entry.js'
-  import(`${origin}/src/${entryFile}`).then((module) => {
+import(`${origin}/assets/${entryFile}`).then((module) => {
+  if (!module.DEV) {
+    createLinkElement(`${origin}/assets/entry.css`)
+  }
   bootstrap(module.registerApp())
-  })
+})
 
 
 
@@ -25,7 +28,6 @@ function createLinkElement (css) {
 }
 
 function bootstrap(config) {
-  createLinkElement(`${origin}/src/entry.css`)
   const { routes } = config
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
