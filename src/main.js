@@ -8,11 +8,13 @@ import { registerGlobal, createLinkElement } from '@/utils/utils'
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
 import './style.css'
+import ZInput from '@/components/ZInput.vue'
 
 registerGlobal(window, {
   // 在这里注册暴露给子工程的全局变量
   Vue,
-  VueRouter
+  VueRouter,
+  ZInput
 })
 
 

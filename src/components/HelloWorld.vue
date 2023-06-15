@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import {useRouter } from 'vue-router'
+import ZInput from '@/components/ZInput.vue'
 
 const router = useRouter()
 
@@ -8,6 +9,7 @@ defineProps({
   msg: String,
 })
 
+const value = ref('')
 const count = ref(0)
 </script>
 
@@ -19,6 +21,7 @@ const count = ref(0)
     <p>
       <button class="my-4 text-yellow text-10 clip" type="button" @click="count++">count is {{ count }}</button>
     </p>
+    <ZInput v-model="value"></ZInput>
   </div>
 </template>
 
