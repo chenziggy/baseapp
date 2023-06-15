@@ -12,7 +12,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1 class="text-red mb-10">BaseApp HelloWorld Page</h1>
+  <h1 class=" mb-10 clip">BaseApp HelloWorld Page</h1>
 
   <div class="card">
     <button @click="router.push('/subapp/zoom/helloworld')">go subapp zoom home</button>
@@ -25,7 +25,12 @@ const count = ref(0)
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
+.clip {
+  --vp-home-hero-name-background: -webkit-linear-gradient( 120deg, #00a98e 30%, #009ff7 );
+
+  background: var(--vp-home-hero-name-background);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 </style>

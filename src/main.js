@@ -4,7 +4,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import * as VueRouter  from 'vue-router'
 import routes from '@/routes'
-import {createLinkElement} from '@/utils/utils'
+import { registerGlobal, createLinkElement } from '@/utils/utils'
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
 import './style.css'
@@ -68,11 +68,3 @@ const router = createRouter({
 router.beforeEach(getModule)
 const app = createApp(App)
 app.use(router).mount('#app')
-
-
-
-function registerGlobal(root, deps = {}) {
-  Object.keys(deps).forEach((key) => {
-    root[key] = deps[key]
-  })
-}
