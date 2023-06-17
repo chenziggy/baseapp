@@ -3,6 +3,9 @@
 </template>
 
 <script setup>
+defineOptions({
+  name: 'ZInput'
+})
 const props = defineProps({
   modelValue: String
 })
