@@ -5,7 +5,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import * as VueRouter  from 'vue-router'
 import routes from '@/routes'
 import { registerGlobal, createLinkElement } from '@/utils/utils'
-import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
 import './style.css'
 import ZInput from '@/components/ZInput.vue'
@@ -70,3 +69,6 @@ const router = createRouter({
 router.beforeEach(getModule)
 const app = createApp(App)
 app.use(router).mount('#app')
+import { msg } from 'virtual:my-module'
+
+console.log(msg)
