@@ -13,7 +13,9 @@ registerGlobal(window, {
   // 在这里注册暴露给子工程的全局变量
   Vue,
   VueRouter,
-  ZInput
+  components: {
+    ZInput
+  }
 })
 
 
