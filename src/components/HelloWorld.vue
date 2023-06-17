@@ -19,7 +19,7 @@ const count = ref(0)
     <h1 class=" mb-10 clip">BaseApp HelloWorld Page</h1>
     <button @click="router.push('/subapp/zoom/helloworld')">go subapp zoom home</button>
     <p>
-      <button class="my-4 text-yellow text-10 clip" type="button" @click="count++">count is {{ count }}</button>
+      <button class="my-4 text-yellow text-10 clip" type="button" @click="() => {console.log(router.getRoutes())}">count is {{ count }}</button>
     </p>
     <ZInput v-model="value"></ZInput>
   </div>
