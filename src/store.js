@@ -21,10 +21,10 @@ export const useDepartmentStore = defineStore('department', () => {
   }
 })
 
-const stores = [
+const stores = {
   useCounterStore,
   useDepartmentStore
-]
+}
 
 const INSTALLED_STORE = Symbol('INSTALLED_STORE')
 
@@ -34,9 +34,12 @@ const INSTALLED_STORE = Symbol('INSTALLED_STORE')
   install(app, options) {
     if (app[INSTALLED_STORE]) return 
     app[INSTALLED_STORE] = true
-    stores.forEach(useStore => {
-      useStore()
+    const useGlobalStore  = {}
+    Object.keys(stores).forEach(key => {
+      stores[key]()
+      useGlobalStore[key] = stores[key]
     })
+    const a = app.provide('useGlobalStore',useGlobalStore)
   }
 }
 
