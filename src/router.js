@@ -23,8 +23,8 @@ const routes = [
 
 const subAppMap = {
   zoom: {
-    js: 'http://localhost:5175/assets/entry.js',
-    css: 'http://localhost:5175/assets/entry.css',
+    js: '/subapp/zoom/assets/entry.js',
+    css: '/subapp/zoom/assets/entry.css',
   }
 }
 

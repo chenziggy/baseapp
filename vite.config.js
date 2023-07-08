@@ -16,4 +16,13 @@ export default defineConfig({
       mode: 'vue-scoped'
     })
   ],
+  server: {
+    proxy: {
+      '/subapp/zoom': {
+        target: 'http://localhost:5175',
+        changeOrigin: true,
+        ws: true
+      }
+    }
+  }
 })
