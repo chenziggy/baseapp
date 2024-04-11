@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { createLinkElement } from '@/utils/utils'
 import App from "@/App.vue"
-import SubApp from '@/components/SubApp.vue'
 
 const routes = [
   {
@@ -16,7 +15,6 @@ const routes = [
   {
     path: "/subapp",
     name: "subApp",
-    component: SubApp,
     children: []
   }
 ];
@@ -37,9 +35,9 @@ async function loadAsyncSubApp(appId) {
     router.addRoute('subApp', routes[0])
     subAppRoutes[appId] = routes[0]
   }
-  if (!DEV) {
-    createLinkElement(subAppMap[appId].css)
-  }
+  // if (!DEV) {
+  //   createLinkElement(subAppMap[appId].css)
+  // }
 }
 
 async function getModule(to, from, next) {

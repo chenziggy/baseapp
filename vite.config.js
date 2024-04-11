@@ -10,6 +10,26 @@ export default defineConfig({
     }
   },
   plugins: [
+    // {
+    //   name: 'my-test-plugin',
+    //   configureServer(server) {
+    //     return () => {
+    //       server.middlewares.use('/', (req, res, next) => {
+    //         const route = '/subapp/zoom/helloworld';
+  
+    //         console.log("🚀🚀🚀🚀 ~  req:",  req.url, req.originalUrl)
+    //         if (req.url === '/index.html') {
+    //           console.log(res.body)
+    //         }
+    //       //   if (req.url === '/helloworld' && req.originalUrl === route+'helloworld') {
+    //       //      res.writeHead(301, { Location: `http://localhost:5173${route+'helloworld'}`} );
+    //       // return res.end();
+    //       //   }
+    //         next();
+    //       });
+    //     }
+    //   }
+    // },
     MyPlugin(),
     vue(),
     UnoCSS({
