@@ -6,13 +6,12 @@
   <div class=" overflow-hidden flex h-full">
     <aside class="w-40 bg-amber h-full shrink-0">menu</aside>
     <main font-sans p="x-4 y-10" text="center gray-700 dark:gray-200 " class="w-full h-full">
+      <!-- <div class="h-8 bg-white"></div> -->
       <router-view v-slot="{ Component}">
         <Transition name="fade" mode="out-in">
             <KeepAlive>
-
                 <component :is="Component"  />
               </KeepAlive>
-
         </Transition>
       </router-view>
     </main>

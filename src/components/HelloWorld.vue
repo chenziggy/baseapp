@@ -18,7 +18,6 @@ const counterStore = useCounterStore()
 </script>
 
 <template>
-
   <div class="card">
     <h1 class=" mb-10 clip">BaseApp HelloWorld Page</h1>
     <button @click="router.push('/subapp/zoom/helloworld')">go subapp zoom home</button>

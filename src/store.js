@@ -39,7 +39,7 @@ const INSTALLED_STORE = Symbol('INSTALLED_STORE')
       stores[key]()
       useGlobalStore[key] = stores[key]
     })
-    const a = app.provide('useGlobalStore',useGlobalStore)
+    app.provide('useGlobalStore',useGlobalStore)
   }
 }
 
