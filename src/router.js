@@ -15,7 +15,12 @@ const routes = [
   {
     path: "/subapp",
     name: "subApp",
-    children: []
+    children: [
+      {
+        path: "/self",
+        component: App,
+      }
+    ]
   }
 ];
 
@@ -23,21 +28,25 @@ const subAppMap = {
   zoom: {
     js: '/subapp/zoom/assets/entry.js',
     css: '/subapp/zoom/assets/entry.css',
-  }
+  },
+  // park: {
+  //   js: '/subapp/park/assets/entry.js',
+  //   css: '/subapp/park/assets/entry.css',
+  // }
 }
 
 const subAppRoutes = {}
 
 async function loadAsyncSubApp(appId) {
-  const {DEV, registerApp} = await import(subAppMap[appId].js)
+  const {DEV, registerApp} = await import(/* @vite-ignore */subAppMap[appId].js)
   const {routes} = registerApp()
   if (routes) {
     router.addRoute('subApp', routes[0])
     subAppRoutes[appId] = routes[0]
   }
-  // if (!DEV) {
-  //   createLinkElement(subAppMap[appId].css)
-  // }
+  if (!DEV) {
+    createLinkElement(subAppMap[appId].css)
+  }
 }
 
 async function getModule(to, from, next) {

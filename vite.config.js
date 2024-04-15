@@ -10,26 +10,6 @@ export default defineConfig({
     }
   },
   plugins: [
-    // {
-    //   name: 'my-test-plugin',
-    //   configureServer(server) {
-    //     return () => {
-    //       server.middlewares.use('/', (req, res, next) => {
-    //         const route = '/subapp/zoom/helloworld';
-  
-    //         console.log("🚀🚀🚀🚀 ~  req:",  req.url, req.originalUrl)
-    //         if (req.url === '/index.html') {
-    //           console.log(res.body)
-    //         }
-    //       //   if (req.url === '/helloworld' && req.originalUrl === route+'helloworld') {
-    //       //      res.writeHead(301, { Location: `http://localhost:5173${route+'helloworld'}`} );
-    //       // return res.end();
-    //       //   }
-    //         next();
-    //       });
-    //     }
-    //   }
-    // },
     MyPlugin(),
     vue(),
     UnoCSS({
@@ -38,8 +18,13 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/subapp/zoom': {
+      '^/subapp/park/(@id|@vite|assets|src/|__uno.css|node_modules/)': {
         target: 'http://localhost:5175',
+        changeOrigin: true,
+        ws: true
+      },
+      '^/subapp/.*/(@id|@vite|assets|src/|__uno.css|node_modules/)': {
+        target: 'http://localhost:8090',
         changeOrigin: true,
         ws: true
       }
