@@ -10,8 +10,6 @@ import '@unocss/reset/tailwind.css'
 import './style.css'
 import ZComponents from '@/components'
 import Stores from '@/store'
-import { msg } from 'virtual:my-module'
-console.log(msg)
 
 registerGlobal(window, {
   // 在这里注册暴露给子工程的全局变量

@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import {useRouter } from 'vue-router'
 import ZInput from '@/components/ZInput.vue'
 import { useCounterStore } from '@/store.js'
@@ -23,6 +22,7 @@ const counterStore = useCounterStore()
     <button @click="router.push('/subapp/zoom/helloworld')">go subapp zoom home</button>
     <!-- <button @click="router.push('/subapp/park/helloworld')">go subapp park home</button> -->
     <p>
+      <el-button type="primary">el-button</el-button>
       <button class="my-4 text-yellow text-10 clip" type="button" @click="count++">count is {{ count }}</button>
     </p>
     <ZInput v-model="value"></ZInput>
